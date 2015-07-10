@@ -12,10 +12,17 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
   \ --ignore .hg
   \ --ignore .DS_Store
   \ --ignore "**/*.pyc"
+  \ --ignore tags
   \ -g ""'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+let g:syntastic_html_tidy_ignore_errors=[
+  \" proprietary attribute \"ng-",
+  \"trimming empty <i>",
+  \"unescaped & which should be written as &amp;"
+\]
+
 Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 
@@ -28,6 +35,7 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'rking/ag.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,6 +77,7 @@ map <Leader>t :tabnew<Return>
 map <Leader>e :NERDTree<Return>
 map <Leader>E :NERDTree %<Return>
 map <Leader><Space> :nohlsearch<Return>
+map <Leader>b :CtrlPBuffer<Return>
 
 " Moving around splits
 nnoremap <C-J> <C-W><C-J>
@@ -77,3 +86,4 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 imap jk <Esc>
+imap jj <Esc>
