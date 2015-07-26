@@ -20,6 +20,7 @@ Plugin 'scrooloose/syntastic'
 let g:syntastic_html_tidy_ignore_errors=[
   \" proprietary attribute \"ng-",
   \"trimming empty <i>",
+  \"trimming empty <span>",
   \"unescaped & which should be written as &amp;"
 \]
 
@@ -36,6 +37,8 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
+let g:agprg="ag --column --ignore *.min.js --ignore *.js.map"
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on
