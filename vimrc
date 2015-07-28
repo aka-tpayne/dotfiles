@@ -39,6 +39,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 let g:agprg="ag --column --ignore *.min.js --ignore *.js.map"
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'valloric/MatchTagAlways'
 
 call vundle#end()
 filetype plugin indent on
