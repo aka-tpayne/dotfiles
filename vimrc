@@ -91,6 +91,3 @@ nnoremap <C-H> <C-W><C-H>
 
 imap jk <Esc>
 imap jj <Esc>
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
