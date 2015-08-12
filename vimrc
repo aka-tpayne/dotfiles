@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
   \ --ignore .git
   \ --ignore .svn
@@ -16,6 +16,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
   \ -g ""'
 
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_html_tidy_ignore_errors=[
   \" proprietary attribute \"ng-",
@@ -37,7 +38,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
-let g:agprg="ag --column --ignore *.min.js --ignore *.js.map"
+let g:agprg="ag --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'valloric/MatchTagAlways'
 
@@ -54,6 +55,7 @@ set laststatus=2
 set hidden
 set noswapfile
 set number
+set relativenumber
 set backspace=indent,eol,start
 set so=7
 set tags=./tags,tags;$HOME
