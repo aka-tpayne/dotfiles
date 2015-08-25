@@ -13,3 +13,6 @@ export PATH=/usr/local/bin:$PATH
 #fi
 
 bind 'set mark-symlinked-directories on'
+
+# Add ssh key for ec2-user #
+ssh-add ~/.ssh/id_rsa-pem-emfl

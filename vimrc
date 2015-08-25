@@ -41,6 +41,19 @@ Plugin 'rking/ag.vim'
 let g:agprg="ag --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'valloric/MatchTagAlways'
+Plugin 'rizzatti/dash.vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 call vundle#end()
 filetype plugin indent on
@@ -80,10 +93,14 @@ set hlsearch
 " Key mappings
 let mapleader = ","
 map <Leader>t :tabnew<Return>
-map <Leader>e :NERDTree<Return>
-map <Leader>E :NERDTree %<Return>
+map <Leader>tn :tabnext<CR>
+map <Leader>tp :tabprev<CR>
+map <Leader>e :NERDTreeFind<Return>
 map <Leader><Space> :nohlsearch<Return>
 map <Leader>b :CtrlPBuffer<Return>
+
+" Dash search
+nmap <silent> <Leader>d <Plug>DashSearch
 
 " Moving around splits
 nnoremap <C-J> <C-W><C-J>
