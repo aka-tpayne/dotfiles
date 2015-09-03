@@ -30,7 +30,7 @@ let g:airline_powerline_fonts = 1
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'wakatime/vim-wakatime'
@@ -39,21 +39,28 @@ Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 let g:agprg="ag --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
+
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'rizzatti/dash.vim'
+Plugin 'Shougo/neocomplete'
+let g:neocomplete#enable_at_startup=1
+
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"let g:UltiSnipsExpandTrigger = "<tab>"
+"let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 call vundle#end()
 filetype plugin indent on
@@ -67,6 +74,7 @@ colorscheme solarized
 set laststatus=2
 set hidden
 set noswapfile
+set cursorline
 set number
 set relativenumber
 set backspace=indent,eol,start
@@ -91,13 +99,21 @@ set incsearch
 set hlsearch
 
 " Key mappings
-let mapleader = ","
+let mapleader = " "
 map <Leader>t :tabnew<Return>
 map <Leader>tn :tabnext<CR>
 map <Leader>tp :tabprev<CR>
 map <Leader>e :NERDTreeFind<Return>
 map <Leader><Space> :nohlsearch<Return>
 map <Leader>b :CtrlPBuffer<Return>
+nmap <Leader>w :bp<bar>bd #<CR>
+
+" neocomplete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Dash search
 nmap <silent> <Leader>d <Plug>DashSearch
