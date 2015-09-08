@@ -30,6 +30,7 @@ let g:airline_powerline_fonts = 1
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
 "Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
