@@ -112,6 +112,7 @@ nmap <Leader>w :bp<bar>bd #<CR>
 " neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+"inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
