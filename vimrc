@@ -31,15 +31,15 @@ let g:airline_powerline_fonts = 1
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
-"Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
+"Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
-let g:agprg="ag --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
+let g:ag_prg="ag --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'valloric/MatchTagAlways'
@@ -88,9 +88,9 @@ set directory=~/.vim/swap-files//
 set undodir=~/.vim/undo-files//
 
 " indents
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set autoindent
 set nocindent
 set expandtab
@@ -108,6 +108,8 @@ map <Leader>e :NERDTreeFind<Return>
 map <Leader><Space> :nohlsearch<Return>
 map <Leader>b :CtrlPBuffer<Return>
 nmap <Leader>w :bp<bar>bd #<CR>
+nmap <Leader>gs :Gstatus<Return>
+nmap <Leader>gp :Gpush<Return>
 
 " neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
