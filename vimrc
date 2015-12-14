@@ -24,6 +24,8 @@ let g:syntastic_html_tidy_ignore_errors=[
   \"trimming empty <span>",
   \"unescaped & which should be written as &amp;"
 \]
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
