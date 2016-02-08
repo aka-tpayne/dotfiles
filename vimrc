@@ -27,43 +27,31 @@ let g:syntastic_html_tidy_ignore_errors=[
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_javascript_checkers = ['eslint']
 
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
+Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-surround'
+Plugin 'kana/vim-operator-user'
+Plugin 'rhysd/vim-operator-surround'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
 let g:ag_prg="ag --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'valloric/MatchTagAlways'
-Plugin 'rizzatti/dash.vim'
+Plugin 'romainl/vim-qf'
+Plugin 'wellle/targets.vim'
 Plugin 'Shougo/neocomplete'
 let g:neocomplete#enable_at_startup=1
 
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
-
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
-" make YCM compatible with UltiSnips (using supertab)
-"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-"let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-"let g:UltiSnipsExpandTrigger = "<tab>"
-"let g:UltiSnipsJumpForwardTrigger = "<tab>"
-"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 call vundle#end()
 filetype plugin indent on
@@ -90,9 +78,9 @@ set directory=~/.vim/swap-files//
 set undodir=~/.vim/undo-files//
 
 " indents
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set nocindent
 set expandtab
@@ -109,7 +97,7 @@ map <Leader>tp :tabprev<CR>
 map <Leader>e :NERDTreeFind<Return>
 map <Leader><Space> :nohlsearch<Return>
 map <Leader>b :CtrlPBuffer<Return>
-nmap <Leader>w :bp<bar>bd #<CR>
+nmap <Leader>w :b#<bar>bd #<CR>
 nmap <Leader>gs :Gstatus<Return>
 nmap <Leader>gp :Gpush<Return>
 
@@ -121,8 +109,10 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" Dash search
-nmap <silent> <Leader>d <Plug>DashSearch
+" operator-surround
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
 
 " Moving around splits
 nnoremap <C-J> <C-W><C-J>

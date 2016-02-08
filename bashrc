@@ -18,3 +18,5 @@ ssh-add ~/.ssh/id_rsa-pem-emfl &> /dev/null
 
 # Aliases
 alias vi=vim
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
