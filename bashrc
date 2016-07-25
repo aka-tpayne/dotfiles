@@ -15,8 +15,21 @@ bind 'set mark-symlinked-directories on'
 
 # Add ssh key for ec2-user #
 ssh-add ~/.ssh/id_rsa-pem-emfl &> /dev/null
+# Add ssh key for tpayne
+ssh-add ~/.ssh/id_rsa &> /dev/null
 
 # Aliases
 alias vi=vim
+alias ls='ls -G'
+alias drush7='~/drush/drush7/vendor/bin/drush'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Base16 Shell
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+# [[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
+
+export EDITOR='vim'
+
+# tmuxinator completions
+source $HOME/.tmuxinator/completions.bash

@@ -15,8 +15,10 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
   \ --ignore tags
   \ -g ""'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdtree'
+"let NERDTreeQuitOnOpen = 1
+
+"Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_html_tidy_ignore_errors=[
   \" proprietary attribute \"ng-",
@@ -31,35 +33,60 @@ Plugin 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
 Plugin 'vim-airline/vim-airline-themes'
 
+" Plugin 'godlygeek/csapprox'
+Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kana/vim-operator-user'
-Plugin 'rhysd/vim-operator-surround'
+"Plugin 'tpope/vim-vinegar'
+Plugin 'jeetsukumaran/vim-filebeagle'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
 Plugin 'pangloss/vim-javascript'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
-let g:ag_prg="ag --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
+let g:ag_prg="ag -i --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
+ca Ag Ag!
 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'romainl/vim-qf'
 Plugin 'wellle/targets.vim'
-Plugin 'Shougo/neocomplete'
-let g:neocomplete#enable_at_startup=1
+"Plugin 'Shougo/neocomplete'
+"let g:neocomplete#enable_at_startup=1
 
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/neosnippet-snippets'
+
+Plugin 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+set completeopt=longest,menuone
+
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'easymotion/vim-easymotion'
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
 
 syntax enable
 set background=dark
-let g:solarized_termtrans = 1
-colorscheme solarized
+set guicolors
+colorscheme base16-default
 
 " General
 set laststatus=2
@@ -71,6 +98,10 @@ set relativenumber
 set backspace=indent,eol,start
 set so=7
 set tags=./tags,tags;$HOME
+
+" Change terminal title to current document name
+set title
+set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
 
 " Change directory locations
 set backupdir=~/.vim/backup-files//
@@ -97,9 +128,11 @@ map <Leader>tp :tabprev<CR>
 map <Leader>e :NERDTreeFind<Return>
 map <Leader><Space> :nohlsearch<Return>
 map <Leader>b :CtrlPBuffer<Return>
-nmap <Leader>w :b#<bar>bd #<CR>
+nmap <silent> <Leader>w :bp<bar>sp<bar>bn<bar>bd<CR>
 nmap <Leader>gs :Gstatus<Return>
 nmap <Leader>gp :Gpush<Return>
+nmap <Leader>ev :e ~/.vimrc<Return>
+nmap <Leader>fw :Ag <C-R><C-W><CR>
 
 " neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -122,3 +155,14 @@ nnoremap <C-H> <C-W><C-H>
 
 imap jk <Esc>
 imap jj <Esc>
+
+"--------- Auto-Commands ---------------
+augroup myvimrc
+  au!
+  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC 
+augroup END
+
+augroup PHP
+  autocmd!
+  autocmd FileType php setlocal iskeyword-=$
+augroup END
