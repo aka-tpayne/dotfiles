@@ -33,6 +33,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'git' \
+  'tmux' \
   'history-substring-search' \
   'prompt'
 
@@ -164,4 +165,4 @@ zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa-pem-emfl'
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
-# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:tmux:iterm' integrate 'yes'
