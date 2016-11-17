@@ -1,6 +1,10 @@
 install:	install-vim install-tmux \
 					install-git install-ctags \
-					install-ssh install-bash
+					install-ssh install-bash \
+					install-zsh
+general:
+	rm -rf ~/.hushlogin
+	ln -s `pwd`/hushlogin ~/.hushlogin
 
 install-vim:
 	rm -rf ~/.vimrc
@@ -30,3 +34,12 @@ ifeq ($(shell uname), Darwin)
 	rm -rf ~/.bash_profile
 	ln -s `pwd`/bash_profile ~/.bash_profile
 endif
+
+install-zsh:
+	rm -rf ~/.zlogin ~/.zlogout ~/.zpreztorc ~/.zprofile ~/.zshenv ~/.zshrc
+	ln -s `pwd`/zlogin ~/.zlogin
+	ln -s `pwd`/zlogout ~/.zlogout
+	ln -s `pwd`/zpreztorc ~/.zpreztorc
+	ln -s `pwd`/zprofile ~/.zprofile
+	ln -s `pwd`/zshenv ~/.zshenv
+	ln -s `pwd`/zshrc ~/.zshrc

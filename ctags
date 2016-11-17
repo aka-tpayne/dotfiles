@@ -1,2 +1,4 @@
---langmap=PHP:+.inc
+--langmap=PHP:.engine.inc.module.theme.install.php
+--php-kinds=cdfi
+--recurse
 --exclude=node_modules

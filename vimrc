@@ -47,9 +47,15 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'rking/ag.vim'
-let g:ag_prg="ag -i --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map"
-ca Ag Ag!
+Plugin 'mileszs/ack.vim'
+cnoreabbrev Ack Ack!
+if executable('ag')
+  let g:ackprg = 'ag -i --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map --ignore *.pdf'
+  cnoreabbrev ag Ack!
+  cnoreabbrev aG Ack!
+  cnoreabbrev Ag Ack!
+  cnoreabbrev AG Ack!
+endif
 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'valloric/MatchTagAlways'
@@ -80,13 +86,17 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+" Themes
+Plugin 'jacoborus/tender'
+Plugin 'trevordmiller/nova-vim'
+
 call vundle#end()
 filetype plugin indent on
 
 syntax enable
 set background=dark
-set guicolors
-colorscheme base16-default
+set termguicolors
+colorscheme base16-default-dark
 
 " General
 set laststatus=2
@@ -135,8 +145,8 @@ nmap <Leader>ev :e ~/.vimrc<Return>
 nmap <Leader>fw :Ag <C-R><C-W><CR>
 
 " neocomplete
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
