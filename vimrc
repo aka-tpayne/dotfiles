@@ -50,7 +50,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
 cnoreabbrev Ack Ack!
 if executable('ag')
-  let g:ackprg = 'ag -i --column --ignore *.min.js --ignore *.js.map --ignore *.min.css.map --ignore *.pdf'
+  let g:ackprg = 'ag -i --column --ignore "*.min.js" --ignore "*.js.map" --ignore "*.min.css.map" --ignore "*.pdf"'
   cnoreabbrev ag Ack!
   cnoreabbrev aG Ack!
   cnoreabbrev Ag Ack!
@@ -61,6 +61,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'romainl/vim-qf'
 Plugin 'wellle/targets.vim'
+Plugin 'posva/vim-vue'
+Plugin 'sheerun/vim-polyglot'
 "Plugin 'Shougo/neocomplete'
 "let g:neocomplete#enable_at_startup=1
 
@@ -143,6 +145,7 @@ nmap <Leader>gs :Gstatus<Return>
 nmap <Leader>gp :Gpush<Return>
 nmap <Leader>ev :e ~/.vimrc<Return>
 nmap <Leader>fw :Ag <C-R><C-W><CR>
+nmap <Leader>cc :Dispatch drush cc all<Return>
 
 " neocomplete
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
