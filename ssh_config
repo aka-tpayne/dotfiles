@@ -1,2 +1,4 @@
 Host *
-ServerAliveInterval 240
+  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/emfl_key
+  ServerAliveInterval 240

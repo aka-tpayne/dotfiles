@@ -3,3 +3,7 @@
 /tags*
 .vagrant
 .sass-cache
+stage_file_proxy
+sites/all/modules/dummyimage
+
+.wakatime-project
