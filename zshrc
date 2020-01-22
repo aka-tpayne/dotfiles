@@ -66,18 +66,26 @@ drush() {
   fi
 }
 
-composer() {
-  if [ $(docker-compose ps -q composer 2> /dev/null) ]; then
-    docker-compose run --rm composer $@
-  else
-    /usr/local/bin/composer $@
-  fi
-}
+#composer() {
+#  if [ $(docker-compose ps -q composer 2> /dev/null) ]; then
+#    docker-compose run --rm composer $@
+#  else
+#    /usr/local/bin/composer $@
+#  fi
+#}
 
 wp() {
   if [ $(docker-compose ps -q wpcli) ]; then
     docker-compose run --rm wpcli wp $@
   else
     echo 'figure this out now...'
+  fi
+}
+
+php() {
+  if [ $(docker-compose ps -q phpcli) ]; then
+    docker-compose run --rm phpcli php $@
+  else
+    /usr/local/bin/php $@
   fi
 }

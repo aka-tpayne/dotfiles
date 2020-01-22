@@ -1,0 +1,6 @@
+
+[settings]
+api_key = 64148697-9f73-419d-b1a0-4ce611c8037f
+
+[projectmap]
+^/Users/tpayne/Code/work/(.*?)/ = {0}
