@@ -109,7 +109,7 @@ module.exports = {
 
     // for advanced config flags please refer to https://hyper.is/#cfg
     summon: {
-      hotkey: "Ctrl+`"
+      hotkey: "Ctrl+Esc"
     }
   },
 
@@ -120,10 +120,11 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    "hyperterm-cobalt2-theme",
+    // "hyperterm-cobalt2-theme",
     "hyperterm-summon",
     "hyperlinks",
-    "hyper-broadcast"
+    "hyper-broadcast",
+    "hyper-dracula"
   ],
 
   // in development, you can create a directory under

@@ -10,6 +10,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+
 plugins=(virtualenv)
 
 # Customize to your needs...
@@ -20,7 +22,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv background_jobs command_execution_time)
 
 
-export EDITOR='code'
+export EDITOR='vim'
 
 export PATH=~/.composer/vendor/bin:$PATH
 
@@ -29,6 +31,11 @@ alias dco='docker-compose'
 alias dcoe='docker-compose exec'
 alias dcor='docker-compose run --rm'
 alias dcol='docker-compose logs -f --tail=100'
+
+# Git
+alias s='git status -sb'
+
+phpco() { docker run --init -v $PWD:/mnt/src:cached --rm -u "$(id -u):$(id -g)" frbit/phpco:latest $@; return $?; }
 
 #source ~/.bin/tmuxinator.zsh
 
@@ -58,34 +65,13 @@ eval "`fnm env --multi`"
 
 phan() { docker run -v $PWD:/app --rm -u "$(id -u):$(id -g)" tpayne/phan:latest $@; return $?; }
 
-drush() {
-  if [ $(docker-compose ps -q drush 2> /dev/null) ]; then
-    docker-compose run --rm drush $@
-  else
-    echo 'figure this out now...'
-  fi
-}
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-#composer() {
-#  if [ $(docker-compose ps -q composer 2> /dev/null) ]; then
-#    docker-compose run --rm composer $@
-#  else
-#    /usr/local/bin/composer $@
-#  fi
-#}
+# thefuck
+eval $(thefuck --alias)
 
-wp() {
-  if [ $(docker-compose ps -q wpcli) ]; then
-    docker-compose run --rm wpcli wp $@
-  else
-    echo 'figure this out now...'
-  fi
-}
 
-php() {
-  if [ $(docker-compose ps -q phpcli) ]; then
-    docker-compose run --rm phpcli php $@
-  else
-    /usr/local/bin/php $@
-  fi
-}
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
